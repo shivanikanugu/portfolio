@@ -4,7 +4,7 @@ This repository contains personal portfolio web pages for showcasing skills, edu
 
 ## Files
 
-- [shivani.html](shivani.html): Portfolio for Kanugu Shivani.
+ Portfolio for Kanugu Shivani.
 
 ## Features
 
