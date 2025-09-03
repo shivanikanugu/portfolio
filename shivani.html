@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kanugu Shivani | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Global theme - Dark & Vibrant */
+    body { 
+      margin: 0; 
+      font-family: 'Poppins', sans-serif; 
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); 
+      color: #f1f1f1; 
+      overflow-x: hidden; 
+    }
+
+    /* Navbar */
+    header { 
+      position: fixed; 
+      top: 0; 
+      width: 100%; 
+      background: rgba(20, 20, 40, 0.9); 
+      display: flex; 
+      justify-content: center; 
+      padding: 15px 40px; 
+      z-index: 1000; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6); 
+      backdrop-filter: blur(10px);
+    }
+    nav a { 
+      margin: 0 15px; 
+      text-decoration: none; 
+      color: #ddd; 
+      font-weight: 600; 
+      transition: color 0.3s, transform 0.2s; 
+      cursor: pointer; 
+    }
+    nav a:hover, nav a.active { 
+      color: #ff6ec7; 
+      transform: scale(1.1); 
+      text-shadow: 0 0 10px #ff6ec7; 
+    }
+
+    /* Sections */
+    .section { 
+      display: none; 
+      padding: 120px 40px 60px; 
+      max-width: 950px; 
+      margin: auto; 
+      opacity:0; 
+      transform: translateY(50px); 
+      transition: all 0.8s ease; 
+    }
+    .section.active { 
+      display: block; 
+      opacity:1; 
+      transform: translateY(0); 
+    }
+
+    h2 { 
+      font-size: 32px; 
+      margin-bottom: 20px; 
+      color: #00f2fe; 
+      text-shadow: 0 0 15px rgba(0,242,254,0.7); 
+    }
+    h3 { 
+      margin-bottom: 8px; 
+      color:#ff6ec7; 
+    }
+    p, li { line-height: 1.7; }
+    ul { padding-left: 20px; }
+
+    /* Cards */
+    .card { 
+      background: rgba(255, 255, 255, 0.05); 
+      padding:20px; 
+      border-radius:15px; 
+      box-shadow:0 8px 25px rgba(0,0,0,0.5); 
+      margin-bottom:20px; 
+      transition: transform 0.3s, box-shadow 0.3s; 
+      backdrop-filter: blur(6px);
+    }
+    .card:hover { 
+      transform: translateY(-8px); 
+      box-shadow:0 12px 30px rgba(255,110,199,0.4); 
+    }
+
+    /* Home Name Animation */
+    #home h1 { 
+      font-size: 60px; 
+      font-weight: 700; 
+      background: linear-gradient(90deg, #ff6ec7, #00f2fe, #4facfe, #ff6ec7); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      background-size: 300% 300%; 
+      animation: gradientShift 6s ease infinite, glowPulse 2s infinite alternate, floatText 4s ease-in-out infinite; 
+      text-align: center; 
+      margin-bottom: 20px; 
+    }
+    #home p { 
+      font-size: 22px; 
+      color: #ddd; 
+      text-align: center; 
+      opacity:0; 
+      animation: fadeInText 1.5s ease forwards; 
+      animation-delay: 1.5s; 
+    }
+
+    /* Resume Button */
+    .resume-btn { 
+      display:inline-block; 
+      margin-top:25px; 
+      padding:14px 28px; 
+      font-size:18px; 
+      font-weight:600; 
+      color:#fff; 
+      background:linear-gradient(90deg,#ff6ec7,#4facfe,#00f2fe); 
+      border:none; 
+      border-radius:30px; 
+      text-decoration:none; 
+      transition: transform 0.3s, box-shadow 0.3s; 
+    }
+    .resume-btn:hover { 
+      transform: scale(1.1); 
+      box-shadow:0 8px 25px rgba(79,172,254,0.6); 
+    }
+
+    /* Animations */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes glowPulse {
+      from { text-shadow: 0 0 10px rgba(255,110,199,0.8), 0 0 20px rgba(0,242,254,0.6); }
+      to { text-shadow: 0 0 25px rgba(255,110,199,1), 0 0 35px rgba(0,242,254,1); }
+    }
+    @keyframes fadeInText { 
+      from { opacity:0; transform: translateY(20px);} 
+      to {opacity:1; transform: translateY(0);} 
+    }
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="active" onclick="showSection('home')">Home</a>
+      <a onclick="showSection('about')">About</a>
+      <a onclick="showSection('education')">Education</a>
+      <a onclick="showSection('skills')">Skills</a>
+      <a onclick="showSection('projects')">Projects</a>
+      <a onclick="showSection('contact')">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Home -->
+  <section id="home" class="section active">
+    <h1>Kanugu Shivani</h1>
+    <p>Aspiring Computer Science Engineer | Python • Java • SQL • Machine Learning</p>
+    <div style="text-align:center;">
+      <a class="resume-btn" href="https://drive.google.com/file/d/1VOw1IEpfZiW-idxvm5NdNsQwwJBbuIkA/view?usp=sharing" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Resume</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <h2>Career Objective</h2>
+    <div class="card">
+      <p>
+        Aspiring Computer Science and Engineering graduate with a solid foundation in core computer science principles and hands-on 
+        experience in software development and problem-solving. Seeking an Engineer-Trainee role to contribute to impactful and 
+        innovative projects while continuously learning and growing in a dynamic environment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="section">
+    <h2>Educational Qualifications</h2>
+    <div class="card">
+      <h3>B.Tech in CSE</h3>
+      <p><b>Vignana Bharathi Institute of Technology, Ghatkesar</b> | JNTU Hyderabad</p>
+      <p><i class="fa-solid fa-calendar"></i> Pursuing | CGPA: 8.4</p>
+    </div>
+    <div class="card">
+      <h3>Diploma in Computer Science</h3>
+      <p><b>Annamacharya Institute of Technology and Sciences</b> | JNTU Hyderabad</p>
+      <p><i class="fa-solid fa-calendar"></i> 2020 – 2023 | CGPA: 9.4</p>
+    </div>
+    <div class="card">
+      <h3>Secondary School (SSC)</h3>
+      <p><b>ZPH School, Batasinagaram</b> | SSC Board</p>
+      <p><i class="fa-solid fa-calendar"></i> 2020 | GPA: 10.0</p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <!-- Skills -->
+<section id="skills" class="section">
+  <h2>Technical Skills</h2>
+  <div class="skills-container">
+    <div class="skill-card">
+      <i class="fa-brands fa-python"></i>
+      <h4>Python</h4>
+      <div class="progress-bar"><span style="width: 90%;"></span></div>
+    </div>
+    <div class="skill-card">
+      <i class="fa-brands fa-java"></i>
+      <h4>Java</h4>
+      <div class="progress-bar"><span style="width: 85%;"></span></div>
+    </div>
+    <div class="skill-card">
+      <i class="fa-solid fa-database"></i>
+      <h4>SQL / MySQL</h4>
+      <div class="progress-bar"><span style="width: 80%;"></span></div>
+    </div>
+    <div class="skill-card">
+      <i class="fa-brands fa-html5"></i>
+      <h4>HTML & CSS</h4>
+      <div class="progress-bar"><span style="width: 95%;"></span></div>
+    </div>
+    <div class="skill-card">
+      <i class="fa-brands fa-js"></i>
+      <h4>JavaScript</h4>
+      <div class="progress-bar"><span style="width: 75%;"></span></div>
+    </div>
+    <div class="skill-card">
+      <i class="fa-solid fa-cogs"></i>
+      <h4>Core CS (DS, DBMS, OS, CN)</h4>
+      <div class="progress-bar"><span style="width: 85%;"></span></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .skill-card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,242,254,0.4);
+  }
+
+  .skill-card i {
+    font-size: 40px;
+    color: #00f2fe;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0,242,254,0.7);
+  }
+
+  .skill-card h4 {
+    margin-bottom: 12px;
+    color: #ff6ec7;
+  }
+
+  .progress-bar {
+    background: rgba(255,255,255,0.1);
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress-bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #ff6ec7, #00f2fe);
+    border-radius: 10px;
+    animation: growBar 2s ease;
+  }
+
+  @keyframes growBar {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+</style>
+
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <h2>Academic Projects</h2>
+    <div class="card">
+      <h3>Customer Segmentation using Machine Learning</h3>
+      <p>Developed a model to segment customers based on purchasing behavior using <b>K-Means Clustering</b>. 
+      Utilized Python libraries like Pandas, NumPy, Matplotlib, and Seaborn for data analysis and visualization. 
+      Helped businesses identify target customer groups effectively.</p>
+    </div>
+    <div class="card">
+      <h3>Cotton Leaf Disease Detection using CNN</h3>
+      <p>Built a Convolutional Neural Network model to detect diseases in cotton leaves from image datasets. 
+      Achieved <b>over 90% accuracy</b> using TensorFlow and Keras with preprocessing in OpenCV. 
+      Enhanced crop monitoring and early disease detection.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <div class="contact-icons">
+      <div class="card" style="text-align:center;">
+        <i class="fa-solid fa-envelope fa-2x" style="color:#00f2fe;"></i>
+        <h3>Email</h3>
+        <p><a href="mailto:shivanikangu@gmail.com">shivanikanugu@gmail.com</a></p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <i class="fa-solid fa-phone fa-2x" style="color:#00f2fe;"></i>
+        <h3>Phone</h3>
+        <p><a href="tel:+917675097490">+91 76759 07490</a></p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <i class="fa-solid fa-location-dot fa-2x" style="color:#00f2fe;"></i>
+        <h3>Address</h3>
+        <p>HNO: 3-16, Batasinagaram, Rangareddy 501512</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
+
